@@ -30,7 +30,7 @@ export default Index;
 
 export const getServerSideProps = async ({ query }) => {
   // USING THIS GET URL PARAMETERS
-
+  console.log(query, "query");
   const { id, image } = query;
 
   return {
@@ -38,7 +38,7 @@ export const getServerSideProps = async ({ query }) => {
       data: {
         name: "siva",
       },
-      image: "asdfda",
+      image: image,
     },
   };
 };
