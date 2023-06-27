@@ -11,7 +11,7 @@ const Index = ({ data, image }) => {
         openGraph={{
           title: `${data?.name}`,
           description: `${title}`,
-          type: "article",
+          type: "website",
           images: [
             {
               url: image,
