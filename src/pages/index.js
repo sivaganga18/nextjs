@@ -15,8 +15,8 @@ const Index = ({ data, image }) => {
           images: [
             {
               url: image,
-              width: 850,
-              height: 650,
+              width: 800,
+              height: 420,
               alt: "xx.s/jpg",
             },
           ],
