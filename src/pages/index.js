@@ -2,6 +2,7 @@ import { NextSeo } from "next-seo";
 
 const Index = ({ data, image }) => {
   const title = `${data?.name} | Page details`;
+  console.log(image, "tes image");
   return (
     <div>
       <NextSeo
@@ -10,6 +11,7 @@ const Index = ({ data, image }) => {
         openGraph={{
           title: `${data?.name}`,
           description: `${title}`,
+          article: true,
           images: [
             {
               url: image,
