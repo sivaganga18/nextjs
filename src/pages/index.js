@@ -15,10 +15,9 @@ const Index = ({ data, image }) => {
           images: [
             {
               url: image,
-              width: 1920,
-              height: 1080,
+              width: 850,
+              height: 650,
               alt: "xx.s/jpg",
-              type: "image/jpeg",
             },
           ],
           site_name: "https://www.mintavibe.com/",
