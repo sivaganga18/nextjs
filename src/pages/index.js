@@ -11,7 +11,7 @@ const Index = ({ data, image }) => {
         openGraph={{
           title: `${data?.name}`,
           description: `${title}`,
-          article: true,
+          type: "article",
           images: [
             {
               url: image,
@@ -38,7 +38,7 @@ export const getServerSideProps = async ({ query }) => {
   return {
     props: {
       data: {
-        name: "siva",
+        name: "sivasds",
       },
       image: image,
     },
