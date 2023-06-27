@@ -12,6 +12,8 @@ const Index = ({ data, image }) => {
           title: `${data?.name}`,
           description: `${title}`,
           type: "website",
+          defaultImageWidth: 800,
+          defaultImageHeight: 420,
           images: [
             {
               url: image,
