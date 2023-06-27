@@ -32,12 +32,12 @@ export default Index;
 export const getServerSideProps = async ({ query }) => {
   // USING THIS GET URL PARAMETERS
   console.log(query, "query");
-  const { id, image } = query;
+  const { name, image } = query;
 
   return {
     props: {
       data: {
-        name: "sivasds",
+        name: name,
       },
       image: image,
     },
