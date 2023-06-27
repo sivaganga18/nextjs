@@ -14,7 +14,14 @@ const Index = ({ data, image }) => {
           type: "website",
           defaultImageWidth: 800,
           defaultImageHeight: 420,
-          image: image,
+          images: [
+            {
+              url: image,
+              width: 800,
+              height: 420,
+              alt: "xx.s/jpg",
+            },
+          ],
           site_name: "https://www.mintavibe.com/",
         }}
       />
