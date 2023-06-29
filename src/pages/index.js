@@ -18,9 +18,9 @@ const Index = ({ data, image, userAgent }) => {
 
   const redirect = () => {
     if (isAndroid) {
-      window.location.href = `mintavibe://`;
+      window.location.href = `mintavibe://${data?.pageType}/${id}`;
     } else if (isIos) {
-      // window.location.href = `com.mbs.mintavibe://`;
+      window.location.href = `com.mbs.mintavibe://${data?.pageType}/${id}`;
     }
   };
 
@@ -55,7 +55,7 @@ export default Index;
 export const getServerSideProps = async ({ req, query }) => {
   // USING THIS GET URL PARAMETERS
 
-  const { name, image, desc } = query;
+  const { name, image, desc, pageType } = query;
 
   return {
     props: {
@@ -63,6 +63,7 @@ export const getServerSideProps = async ({ req, query }) => {
       data: {
         name: name,
         desc: desc,
+        pageType: pageType,
       },
       image: image,
     },
