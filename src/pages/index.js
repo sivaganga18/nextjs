@@ -6,6 +6,7 @@ const Index = ({ data, image, userAgent }) => {
 
   useEffect(() => {
     setFirstLoad(false);
+    window.location.href = `com.mbs.mintavibe://`;
   }, []);
 
   const title = `${data?.name}`;
