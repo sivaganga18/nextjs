@@ -2,17 +2,27 @@ import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 const Index = ({ data, image, userAgent }) => {
-  const isAndroid = /android/i.test(userAgent);
-  const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  const [firstLoad, setFirstLoad] = useState(true);
+
   useEffect(() => {
-    if (isAndroid) {
-      window.location.href = `com.mbs.mintavibe://`;
-    } else if (isIos) {
-      window.location.href = `mintavibe://`;
-    }
+    setFirstLoad(false);
+    setTimeout(() => {
+      redirect();
+    }, 500);
   }, []);
 
   const title = `${data?.name}`;
+
+  const isAndroid = /android/i.test(userAgent);
+  const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+  const redirect = () => {
+    if (isAndroid) {
+      window.location.href = `mintavibe://`;
+    } else if (isIos) {
+      window.location.href = `com.mbs.mintavibe://`;
+    }
+  };
 
   return (
     <div>
