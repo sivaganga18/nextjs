@@ -20,7 +20,7 @@ const Index = ({ data, image, userAgent }) => {
     if (isAndroid) {
       window.location.href = `mintavibe://`;
     } else if (isIos) {
-      window.location.href = `com.mbs.mintavibe://`;
+      // window.location.href = `com.mbs.mintavibe://`;
     }
   };
 
