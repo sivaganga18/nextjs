@@ -1,8 +1,21 @@
 import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
 
-const Index = ({ data, image }) => {
-  const title = `${data?.name} | Page details`;
-  console.log(image, "tes image");
+const Index = ({ data, image, userAgent }) => {
+  const [firstLoad, setFirstLoad] = useState(true);
+
+  useEffect(() => {
+    setFirstLoad(false);
+  }, []);
+
+  const title = `${data?.name}`;
+
+  const ssr = firstLoad || typeof navigator === "undefined";
+
+  const isAndroid = /android/i.test(userAgent);
+  const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  console.log(isAndroid, "isAndroid");
+  console.log(isIos, "isIos");
   return (
     <div>
       <NextSeo
@@ -10,7 +23,7 @@ const Index = ({ data, image }) => {
         description={title}
         openGraph={{
           title: `${data?.name}`,
-          description: `${title}`,
+          description: `${data?.desc}`,
           type: "website",
           defaultImageWidth: 800,
           defaultImageHeight: 420,
@@ -25,21 +38,23 @@ const Index = ({ data, image }) => {
           site_name: "https://www.mintavibe.com/",
         }}
       />
-      <span>test adshj</span>
+      <span>{isIos ? "IS IOS" : isAndroid ? "Is Android" : "tes"}</span>
     </div>
   );
 };
 export default Index;
 
-export const getServerSideProps = async ({ query }) => {
+export const getServerSideProps = async ({ req, query }) => {
   // USING THIS GET URL PARAMETERS
-  console.log(query, "query");
-  const { name, image } = query;
+
+  const { name, image, desc } = query;
 
   return {
     props: {
+      userAgent: req.headers["user-agent"],
       data: {
         name: name,
+        desc: desc,
       },
       image: image,
     },
