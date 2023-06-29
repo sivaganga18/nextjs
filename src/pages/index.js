@@ -2,9 +2,9 @@ import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 const Index = ({ data, image, userAgent }) => {
+  const isAndroid = /android/i.test(userAgent);
+  const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
   useEffect(() => {
-    const isAndroid = /android/i.test(userAgent);
-    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
     if (isAndroid) {
       window.location.href = `com.mbs.mintavibe://`;
     } else if (isIos) {
@@ -14,8 +14,6 @@ const Index = ({ data, image, userAgent }) => {
 
   const title = `${data?.name}`;
 
-  console.log(isAndroid, "isAndroid");
-  console.log(isIos, "isIos");
   return (
     <div>
       <NextSeo
