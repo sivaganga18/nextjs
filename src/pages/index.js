@@ -6,7 +6,7 @@ const Index = ({ data, image, userAgent }) => {
 
   useEffect(() => {
     setFirstLoad(false);
-    window.location.href = `com.mbs.mintavibe://`;
+    window.location.href = `mintavibe://`;
   }, []);
 
   const title = `${data?.name}`;
@@ -39,7 +39,7 @@ const Index = ({ data, image, userAgent }) => {
           site_name: "https://www.mintavibe.com/",
         }}
       />
-      <span>{isIos ? "IS IOS" : isAndroid ? "Is Android" : "tes"}</span>
+      <span>{isIos ? "IS IOS" : isAndroid ? "Is Android 123" : "tes"}</span>
     </div>
   );
 };
