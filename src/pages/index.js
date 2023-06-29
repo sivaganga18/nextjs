@@ -46,7 +46,7 @@ const Index = ({ data, image, userAgent }) => {
           site_name: "https://www.mintavibe.com/",
         }}
       />
-      <span>{isIos ? "IS IOS" : isAndroid ? "Is Android 123" : "tes"}</span>
+      <span>{isIos ? "IS IOS" : isAndroid ? "Is Android 123" : "tes12"}</span>
     </div>
   );
 };
