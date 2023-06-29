@@ -2,19 +2,18 @@ import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 const Index = ({ data, image, userAgent }) => {
-  const [firstLoad, setFirstLoad] = useState(true);
-
   useEffect(() => {
-    setFirstLoad(false);
-    window.location.href = `mintavibe://`;
+    const isAndroid = /android/i.test(userAgent);
+    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    if (isAndroid) {
+      window.location.href = `com.mbs.mintavibe://`;
+    } else if (isIos) {
+      window.location.href = `mintavibe://`;
+    }
   }, []);
 
   const title = `${data?.name}`;
 
-  const ssr = firstLoad || typeof navigator === "undefined";
-
-  const isAndroid = /android/i.test(userAgent);
-  const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
   console.log(isAndroid, "isAndroid");
   console.log(isIos, "isIos");
   return (
